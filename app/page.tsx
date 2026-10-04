@@ -1,69 +1,421 @@
+"use client";
+
+import { useState } from "react";
+import { FaWhatsapp, FaMapMarkerAlt, FaRoute, FaComments } from "react-icons/fa";
 import Image from "next/image";
 
 export default function Home() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "TouristInformationCenter",
+    name: "Abush Tour",
+    url: "https://abushtour.com",
+    description:
+      "Local tour guide in Arba Minch offering private tours and local experiences around Arba Minch and Southern Ethiopia.",
+    areaServed: {
+      "@type": "Place",
+      name: "Arba Minch, Ethiopia",
+    },
+  };
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <main className="min-h-screen bg-white text-neutral-950">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
+      {/* Mobile-first header */}
+      <header className="absolute left-0 top-0 z-40 w-full">
+        <div className="flex items-center justify-between px-5 py-5 md:px-12">
+          <a
+            href="/"
+            className={`text-lg font-semibold tracking-tight text-white transition-opacity duration-200 ${menuOpen ? "opacity-0" : "opacity-100"
+              }`}
+          >
+            Abush | Arba Minch Guide
+          </a>
+
+          <button
+            type="button"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm"
+          >
+            <span className="text-2xl leading-none">
+              {menuOpen ? "×" : "☰"}
+            </span>
+          </button>
+        </div>
+      </header>
+
+      {menuOpen && (
+        <div
+          className={`fixed inset-y-0 right-0 z-50 w-[75%] max-w-sm bg-neutral-950 text-white transition-transform duration-300 ease-out md:w-[360px] ${menuOpen ? "translate-x-0" : "translate-x-full"
+            }`}
+        >
+          <div className="flex h-full flex-col px-6 py-6 md:py-10">
+            <div className="mb-6 flex items-center justify-between">
+              <span className="text-lg font-semibold">
+                Abush | Arba Minch Guide
+              </span>
+
+              <button
+                type="button"
+                onClick={() => setMenuOpen(false)}
+                aria-label="Close menu"
+                className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white"
+              >
+                <span className="text-2xl">×</span>
+              </button>
+            </div>
+            <nav className="flex flex-col">
+              <a
+                href="#tours"
+                onClick={() => setMenuOpen(false)}
+                className="border-b border-white/15 py-4 text-xl font-medium"
+              >
+                Experiences
+              </a>
+
+              <a
+                href="#guide"
+                onClick={() => setMenuOpen(false)}
+                className="border-b border-white/15 py-4 text-xl font-medium"
+              >
+                Meet Abush
+              </a>
+
+              <a
+                href="#contact"
+                onClick={() => setMenuOpen(false)}
+                className="border-b border-white/15 py-4 text-xl font-medium"
+              >
+                Plan Your Trip
+              </a>
+
+              <a
+                href="https://wa.me/19452098975?text=Hi%20Abush!%20I'm%20interested%20in%20visiting%20Arba%20Minch%20and%20would%20like%20to%20know%20more%20about%20your%20tours."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mx-auto mt-6 flex min-h-12 w-[90%] items-center justify-center gap-2.5 rounded-full bg-[#25D366] px-5 text-sm font-semibold text-white shadow-lg md:mx-0 md:w-[220px] md:px-8"
+              >
+                <FaWhatsapp className="text-lg" />
+                Message Abush
+              </a>
+            </nav>
+          </div>
+        </div>
+      )}
+
+      {/* Hero */}
+      <section className="relative flex min-h-screen items-end overflow-hidden bg-neutral-900">
+        {/* Temporary background until we add the real Arba Minch photo */}
         <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
+          src="/images/hero.jpg"
+          alt="View over Arba Minch and the surrounding landscape"
+          fill
           priority
+          sizes="100vw"
+          className="object-cover object-[center_35%]"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
+
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-black/80" />
+
+        {/* Hero content */}
+        <div className="relative z-10 w-full px-5 pb-20 text-white md:px-16 md:pb-24">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em]">
+            Arba Minch, Ethiopia
+          </p>
+
+          <h1 className="max-w-sm text-4xl font-semibold leading-[0.95] tracking-[-0.04em]">
+            Explore Arba Minch & Southern Ethiopia with a local guide.
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
+
+          <p className="mt-5 max-w-sm text-base leading-7 text-white/80">
+            Private tours, local experiences, and flexible trips around
+            Arba Minch and Southern Ethiopia.
+          </p>
+
+          <div className="mt-8 flex flex-col gap-3">
             <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              href="#tours"
+              className="flex items-center justify-center gap-2 py-2 text-base font-semibold text-white"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
+              Explore experiences
+              <span className="text-lg">↓</span>
+            </a>
+
             <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              href="https://wa.me/19452098975?text=Hi%20Abush!%20I'm%20interested%20in%20visiting%20Arba%20Minch%20and%20would%20like%20to%20know%20more%20about%20your%20tours."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mx-auto flex min-h-12 w-[90%] items-center justify-center gap-2.5 rounded-full bg-[#25D366] px-5 text-sm font-semibold text-white shadow-lg md:w-[220px]"
             >
-              Learning
-            </a>{" "}
-            center.
+              <FaWhatsapp className="text-xl" />
+              Message Abush
+            </a>
+          </div>
+        </div>
+      </section>
+      {/* Tours section */}
+      <section
+        id="tours"
+        className="mx-auto w-full max-w-6xl bg-white px-5 pt-16 pb-8 md:px-8 md:pb-8"
+      >
+        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
+          Explore Arba Minch
+        </p>
+
+        <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-tight text-neutral-950">
+          Experiences worth traveling for.
+        </h2>
+        {/* Lake Chamo tour */}
+        <div className="mt-10">
+          <div className="relative h-[420px] w-full overflow-hidden rounded-3xl md:h-[360px]">
+            <Image
+              src="/images/lake-chamo.jpg"
+              alt="Crocodiles and wildlife at Lake Chamo"
+              fill
+              sizes="(max-width: 768px) 100vw, 1152px"
+              className="object-cover object-center"
+            />
+          </div>
+
+          <p className="mt-5 text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
+            Lake Chamo
+          </p>
+
+          <h3 className="mt-2 text-2xl font-semibold tracking-tight text-neutral-950">
+            Crocodiles & Wildlife
+          </h3>
+
+          <p className="mt-2 text-sm font-medium text-neutral-500">
+            Crocodiles · Hippos · Birds · Lake Chamo
+          </p>
+
+          <p className="mt-3 text-base leading-7 text-neutral-600">
+            Get close to Lake Chamo&apos;s incredible wildlife, famous for its giant
+            Nile crocodiles, hippos, and abundant birdlife.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+        {/* Dorze experience */}
+        <div className="mt-14">
+          <div className="relative h-[300px] w-full overflow-hidden rounded-[28px] md:h-[340px]">
             <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+              src="/images/dorze.jpg"
+              alt="Dorze cultural experience near Arba Minch"
+              fill
+              sizes="(max-width: 768px) 100vw, 1152px"
+              className="object-cover object-center"
             />
-            Deploy Now
-          </a>
+          </div>
+
+          <p className="mt-6 text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
+            Dorze Village
+          </p>
+
+          <h3 className="mt-3 text-2xl font-semibold tracking-tight text-neutral-950">
+            Dorze Culture & Village
+          </h3>
+
+          <p className="mt-3 text-base font-medium text-neutral-500">
+            Culture · Traditional homes · Weaving · Local life
+          </p>
+
+          <p className="mt-5 text-lg leading-8 text-neutral-600">
+            Discover Dorze traditions, famous woven textiles, unique homes, and
+            everyday village life in the highlands above Arba Minch.
+          </p>
+          <div className="mt-8">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
+              Traditional Kocho Making
+            </p>
+
+            <video
+              className="w-full rounded-[28px] md:mx-auto md:max-w-3xl"
+              controls
+              playsInline
+              preload="none"
+            >
+              <source src="/videos/kocho-fast.mp4" type="video/mp4" />
+            </video>
+
+            <p className="mt-3 text-sm leading-6 text-neutral-500">
+              See how kocho, a traditional Dorze food, is prepared from the enset plant.
+            </p>
+          </div>
+        </div>
+        {/* Traditional weaving experience */}
+        <div className="mt-16 md:grid md:grid-cols-2 md:items-center md:gap-16">
+
+          {/* Text */}
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
+              Local Craft
+            </p>
+
+            <h3 className="mt-3 text-2xl font-semibold tracking-tight text-neutral-950">
+              Traditional Dorze Weaving
+            </h3>
+
+            <p className="mt-3 text-base font-medium text-neutral-500">
+              Weaving · Craftsmanship · Tradition
+            </p>
+
+            <p className="mt-5 text-lg leading-8 text-neutral-600">
+              Meet local weavers and discover the traditional skills behind Dorze
+              textiles, passed down through generations.
+            </p>
+          </div>
+
+          {/* Photo */}
+          <div className="relative mt-6 h-[430px] w-full overflow-hidden rounded-[28px] md:mt-0 md:h-[560px]">
+            <Image
+              src="/images/weaving.jpg"
+              alt="Traditional weaving in Dorze"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover object-center"
+            />
+          </div>
+
+        </div>
+      </section>
+      <section className="bg-[#f3efe7] px-5 pt-10 pb-10 md:px-0 md:py-16">
+        <div className="mx-auto max-w-6xl md:px-10">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
+            Why Abush
+          </p>
+
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-neutral-950">
+            Explore like a local.
+          </h2>
+
+          <div className="mt-8 grid gap-7 md:mt-10 md:grid-cols-3 md:gap-12 md:max-w-5xl">
+            <div>
+              <FaMapMarkerAlt className="mb-3 text-xl text-neutral-950" />
+              <h3 className="text-lg font-semibold">
+                Local knowledge
+              </h3>
+              <p className="mt-2 text-base leading-7 text-neutral-600">
+                Discover places, culture, and experiences with someone who knows the area.
+              </p>
+            </div>
+
+            <div>
+              <FaRoute className="mb-3 text-xl text-neutral-950" />
+              <h3 className="text-lg font-semibold">
+                Flexible trips
+              </h3>
+              <p className="mt-2 text-base leading-7 text-neutral-600">
+                Plan your experience around your interests, schedule, and travel style.
+              </p>
+            </div>
+
+            <div>
+              <FaComments className="mb-3 text-xl text-neutral-950" />
+              <h3 className="text-lg font-semibold">
+                Direct planning
+              </h3>
+              <p className="mt-2 text-base leading-7 text-neutral-600">
+                Message Abush directly on WhatsApp to ask questions and plan your visit.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        id="guide"
+        className="bg-neutral-950 px-5 pt-10 pb-16 text-white md:px-12 md:py-16"
+      >
+        <div className="mx-auto max-w-6xl md:grid md:grid-cols-2 md:items-center md:gap-16">
+
+          {/* Guide text */}
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/60">
+              Your Local Guide
+            </p>
+
+            <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-tight">
+              Explore with someone who calls this place home.
+            </h2>
+
+            <div className="mt-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/50">
+                Meet your guide
+              </p>
+
+              <h3 className="mt-2 text-3xl font-semibold">
+                Abush
+              </h3>
+            </div>
+
+            <p className="mt-5 text-lg leading-8 text-white/75">
+              Discover Arba Minch and Southern Ethiopia with a local guide who knows
+              the people, culture, landscapes, and experiences that make this region
+              special.
+            </p>
+          </div>
+
+          {/* Guide photo */}
+          <div className="relative mt-10 h-[560px] w-full overflow-hidden rounded-[28px] md:mt-0 md:max-h-[600px]">
+            <Image
+              src="/images/guide.jpg"
+              alt="Local guide in Southern Ethiopia"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover object-top"
+            />
+          </div>
+        </div>
+      </section>
+      {/* Contact section */}
+      <section id="contact" className="bg-[#f3efe7] px-5 pt-14 pb-10 ...">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
+            Plan your trip
+          </p>
+
+          <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-tight text-neutral-950">
+            Ready to explore Southern Ethiopia?
+          </h2>
+
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-neutral-600">
+            Tell Abush when you&apos;re visiting and what you&apos;d like to experience.
+            Your trip can be planned around your interests and schedule.
+          </p>
+
           <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://wa.me/19452098975?text=Hi%20Abush!%20I'm%20interested%20in%20visiting%20Arba%20Minch%20and%20would%20like%20to%20know%20more%20about%20your%20tours."
             target="_blank"
             rel="noopener noreferrer"
+            className="mx-auto mt-8 flex min-h-12 w-[90%] items-center justify-center gap-2.5 rounded-full bg-[#25D366] px-5 text-sm font-semibold text-white md:mx-0 md:w-[290px]"
           >
-            Documentation
+            <FaWhatsapp className="text-xl" />
+            Message Abush on WhatsApp
           </a>
         </div>
-      </main>
-    </div>
+      </section>
+      {/* Footer */}
+      <footer className="bg-neutral-950 px-5 pt-8 pb-6 text-white">
+        <div className="mx-auto flex max-w-6xl flex-col gap-3">
+          <p className="text-lg font-semibold">
+            Abush | Arba Minch Guide
+          </p>
+
+          <p className="text-sm text-white/60">
+            Local tours and experiences in Arba Minch & Southern Ethiopia.
+          </p>
+
+          <p className="mt-5 text-xs text-white/40">
+            © 2026 Abush | Arba Minch Guide
+          </p>
+        </div>
+      </footer>
+    </main>
   );
 }
