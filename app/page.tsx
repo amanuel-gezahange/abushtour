@@ -114,7 +114,7 @@ export default function Home() {
       <section className="relative flex min-h-screen items-end overflow-hidden bg-neutral-900">
         {/* Temporary background until we add the real Arba Minch photo */}
         <Image
-          src="/images/hero-v2.jpg"
+          src="/images/hero-v3.jpg"
           alt="View over Arba Minch and the surrounding landscape"
           fill
           priority
