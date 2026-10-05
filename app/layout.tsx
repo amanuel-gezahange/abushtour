@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://abushtour.com"),
-  title: "Abush Tour | Arba Minch Local Tour Guide, Ethiopia",
+  title: "Arba Minch Tour Guide | Abush Local Tours, Ethiopia",
   applicationName: "Abush Tour",
   description:
     "Explore Arba Minch and Southern Ethiopia with Abush, a local tour guide. Discover Lake Chamo crocodiles, Dorze Village, local culture, wildlife, and private tours.",
