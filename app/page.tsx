@@ -175,14 +175,29 @@ export default function Home() {
         </h2>
         {/* Lake Chamo tour */}
         <div className="mt-10">
-          <div className="relative h-[420px] w-full overflow-hidden rounded-3xl md:h-[360px]">
-            <Image
-              src="/images/lake-chamo.jpg"
-              alt="Crocodiles and wildlife at Lake Chamo"
-              fill
-              sizes="(max-width: 768px) 100vw, 1152px"
-              className="object-cover object-center"
-            />
+          {/* Wildlife photos */}
+          <div className="grid gap-6 md:grid-cols-[1.6fr_1fr]">
+            {/* Crocodiles */}
+            <div className="relative h-[420px] w-full overflow-hidden rounded-3xl md:h-[360px]">
+              <Image
+                src="/images/lake-chamo.jpg"
+                alt="Crocodiles and wildlife at Lake Chamo"
+                fill
+                sizes="(max-width: 768px) 100vw, 60vw"
+                className="object-cover object-top"
+              />
+            </div>
+
+            {/* Monkey */}
+            <div className="relative h-[420px] w-full overflow-hidden rounded-3xl md:h-[360px]">
+              <Image
+                src="/images/monkey.jpg"
+                alt="Wildlife around Arba Minch"
+                fill
+                sizes="(max-width: 768px) 100vw, 40vw"
+                className="object-cover object-center"
+              />
+            </div>
           </div>
 
           <p className="mt-5 text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
@@ -235,17 +250,18 @@ export default function Home() {
               Traditional Kocho Making
             </p>
 
-            <video
-              className="w-full rounded-[28px] md:mx-auto md:max-w-3xl"
-              controls
-              playsInline
-              preload="none"
-            >
-              <source src="/videos/kocho-fast.mp4" type="video/mp4" />
-            </video>
+            <div className="relative mt-6 h-[430px] w-full overflow-hidden rounded-[28px] md:mt-0 md:h-[560px]">
+              <Image
+                src="/images/kocho.jpg"
+                alt="Traditional kocho making in Dorze"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-center"
+              />
+            </div>
 
-            <p className="mt-3 text-sm leading-6 text-neutral-500">
-              See how kocho, a traditional Dorze food, is prepared from the enset plant.
+            <p className="mt-4 text-base leading-7 text-neutral-600">
+              Experience traditional kocho making with local Dorze families. Learn how kocho is prepared from the enset plant, take part in the preparation yourself, and enjoy tasting it afterward.
             </p>
           </div>
         </div>
