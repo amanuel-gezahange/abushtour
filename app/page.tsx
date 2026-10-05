@@ -1,7 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { FaWhatsapp, FaMapMarkerAlt, FaRoute, FaComments } from "react-icons/fa";
+import {
+  FaWhatsapp,
+  FaMapMarkerAlt,
+  FaRoute,
+  FaComments,
+} from "react-icons/fa";
 import Image from "next/image";
 
 export default function Home() {
@@ -17,6 +22,7 @@ export default function Home() {
       name: "Arba Minch, Ethiopia",
     },
   };
+
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -27,7 +33,11 @@ export default function Home() {
           __html: JSON.stringify(structuredData),
         }}
       />
-      {/* Mobile-first header */}
+
+      {/* ========================= */}
+      {/* HEADER */}
+      {/* ========================= */}
+
       <header className="absolute left-0 top-0 z-40 w-full">
         <div className="flex items-center justify-between px-5 py-5 md:px-12">
           <a
@@ -51,6 +61,10 @@ export default function Home() {
         </div>
       </header>
 
+      {/* ========================= */}
+      {/* MOBILE MENU */}
+      {/* ========================= */}
+
       {menuOpen && (
         <div
           className={`fixed inset-y-0 right-0 z-50 w-[75%] max-w-sm bg-neutral-950 text-white transition-transform duration-300 ease-out md:w-[360px] ${menuOpen ? "translate-x-0" : "translate-x-full"
@@ -71,6 +85,7 @@ export default function Home() {
                 <span className="text-2xl">×</span>
               </button>
             </div>
+
             <nav className="flex flex-col">
               <a
                 href="#tours"
@@ -110,9 +125,11 @@ export default function Home() {
         </div>
       )}
 
-      {/* Hero */}
+      {/* ========================= */}
+      {/* MAIN PHOTO */}
+      {/* ========================= */}
+
       <section className="relative flex min-h-screen items-end overflow-hidden bg-neutral-900">
-        {/* Temporary background until we add the real Arba Minch photo */}
         <Image
           src="/images/hero-v3.jpg"
           alt="View over Arba Minch and the surrounding landscape"
@@ -125,7 +142,7 @@ export default function Home() {
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-black/80" />
 
-        {/* Hero content */}
+        {/* Main content */}
         <div className="relative z-10 w-full px-5 pb-20 text-white md:px-16 md:pb-24">
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em]">
             Arba Minch, Ethiopia
@@ -136,8 +153,8 @@ export default function Home() {
           </h1>
 
           <p className="mt-5 max-w-sm text-base leading-7 text-white/80">
-            Private tours, local experiences, and flexible trips around
-            Arba Minch and Southern Ethiopia.
+            Private tours, local experiences, and flexible trips around Arba
+            Minch and Southern Ethiopia.
           </p>
 
           <div className="mt-8 flex flex-col gap-3">
@@ -161,7 +178,11 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* Tours section */}
+
+      {/* ========================= */}
+      {/* EXPERIENCES */}
+      {/* ========================= */}
+
       <section
         id="tours"
         className="mx-auto w-full max-w-6xl bg-white px-5 pt-16 pb-8 md:px-8 md:pb-8"
@@ -173,10 +194,32 @@ export default function Home() {
         <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-tight text-neutral-950">
           Experiences worth traveling for.
         </h2>
-        {/* Lake Chamo tour */}
-        <div className="mt-10">
+
+        {/* ========================= */}
+        {/* LAKE CHAMO */}
+        {/* ========================= */}
+
+        <div className="mt-12">
+          {/* Details first */}
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
+            Lake Chamo
+          </p>
+
+          <h3 className="mt-2 text-2xl font-semibold tracking-tight text-neutral-950">
+            Crocodiles & Wildlife
+          </h3>
+
+          <p className="mt-2 text-sm font-medium text-neutral-500">
+            Crocodiles · Hippos · Birds · Lake Chamo
+          </p>
+
+          <p className="mt-3 max-w-3xl text-base leading-7 text-neutral-600">
+            Get close to Lake Chamo&apos;s incredible wildlife, famous for its
+            giant Nile crocodiles, hippos, and abundant birdlife.
+          </p>
+
           {/* Wildlife photos */}
-          <div className="grid gap-6 md:grid-cols-[1.6fr_1fr]">
+          <div className="mt-6 grid gap-6 md:grid-cols-[1.6fr_1fr]">
             {/* Crocodiles */}
             <div className="relative h-[420px] w-full overflow-hidden rounded-3xl md:h-[360px]">
               <Image
@@ -199,57 +242,15 @@ export default function Home() {
               />
             </div>
           </div>
-
-          <p className="mt-5 text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
-            Lake Chamo
-          </p>
-
-          <h3 className="mt-2 text-2xl font-semibold tracking-tight text-neutral-950">
-            Crocodiles & Wildlife
-          </h3>
-
-          <p className="mt-2 text-sm font-medium text-neutral-500">
-            Crocodiles · Hippos · Birds · Lake Chamo
-          </p>
-
-          <p className="mt-3 text-base leading-7 text-neutral-600">
-            Get close to Lake Chamo&apos;s incredible wildlife, famous for its giant
-            Nile crocodiles, hippos, and abundant birdlife.
-          </p>
         </div>
-        {/* Dorze experience */}
-        {/* Dorze Culture & Village */}
-        <div className="mt-14">
 
-          {/* Dorze photos */}
-          <div className="grid gap-6 md:grid-cols-2">
+        {/* ========================= */}
+        {/* DORZE CULTURE & VILLAGE */}
+        {/* ========================= */}
 
-            {/* Dorze culture photo */}
-            <div className="relative h-[300px] w-full overflow-hidden rounded-[28px] md:h-[360px]">
-              <Image
-                src="/images/dorze.jpg"
-                alt="Dorze cultural experience near Arba Minch"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover object-center"
-              />
-            </div>
-
-            {/* Dorze village photo */}
-            <div className="relative h-[300px] w-full overflow-hidden rounded-[28px] md:h-[360px]">
-              <Image
-                src="/images/village.jpg"
-                alt="Traditional Dorze village near Arba Minch"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover object-center"
-              />
-            </div>
-
-          </div>
-
-          {/* Dorze description */}
-          <p className="mt-6 text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
+        <div className="mt-16">
+          {/* Details first */}
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
             Dorze Village
           </p>
 
@@ -261,62 +262,98 @@ export default function Home() {
             Culture · Traditional homes · Weaving · Local life
           </p>
 
-          <p className="mt-5 text-lg leading-8 text-neutral-600">
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-neutral-600">
             Discover Dorze traditions, famous woven textiles, unique homes, and
             everyday village life in the highlands above Arba Minch.
           </p>
 
-
-          {/* Traditional Kocho Making */}
-          <div className="mt-12">
-
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
-              Traditional Kocho Making
-            </p>
-
-            {/* Kocho photos */}
-            <div className="mt-6 grid gap-6 md:grid-cols-2">
-
-              {/* Kocho photo 1 */}
-              <div className="relative h-[430px] w-full overflow-hidden rounded-[28px] md:h-[480px]">
-                <Image
-                  src="/images/kocho.jpg"
-                  alt="Traditional kocho making in Dorze"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover object-center"
-                />
-              </div>
-
-              {/* Kocho photo 2 */}
-              <div className="relative h-[430px] w-full overflow-hidden rounded-[28px] md:h-[480px]">
-                <Image
-                  src="/images/kocho1.jpg"
-                  alt="Visitor experiencing traditional kocho making in Dorze"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover object-center"
-                />
-              </div>
-
+          {/* Dorze photos */}
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            {/* Dorze culture */}
+            <div className="relative h-[300px] w-full overflow-hidden rounded-[28px] md:h-[360px]">
+              <Image
+                src="/images/dorze.jpg"
+                alt="Dorze cultural experience near Arba Minch"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-center"
+              />
             </div>
 
-            {/* Kocho description */}
-            <p className="mt-5 text-base leading-7 text-neutral-600">
-              Experience traditional kocho making with local Dorze families.
-              Learn how kocho is prepared from the enset plant, take part in the
-              preparation yourself, and enjoy tasting it afterward.
-            </p>
-
+            {/* Dorze village */}
+            <div className="relative h-[300px] w-full overflow-hidden rounded-[28px] md:h-[360px]">
+              <Image
+                src="/images/village.jpg"
+                alt="Traditional Dorze village near Arba Minch"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-center"
+              />
+            </div>
           </div>
         </div>
 
+        {/* ========================= */}
+        {/* TRADITIONAL KOCHO MAKING */}
+        {/* ========================= */}
 
-        {/* Traditional weaving experience */}
-        {/* Traditional weaving experience */}
+        <div className="mt-16">
+          {/* Details first */}
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
+            Traditional Kocho Making
+          </p>
+
+          <h3 className="mt-3 text-2xl font-semibold tracking-tight text-neutral-950">
+            Make & Taste Traditional Kocho
+          </h3>
+
+          <p className="mt-3 text-base font-medium text-neutral-500">
+            Local food · Enset · Hands-on experience · Dorze tradition
+          </p>
+
+          <p className="mt-5 max-w-3xl text-base leading-7 text-neutral-600">
+            Experience traditional kocho making with local Dorze families.
+            Learn how kocho is prepared from the enset plant, take part in the
+            preparation yourself, and enjoy tasting it afterward.
+          </p>
+
+          {/* Kocho photos */}
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            {/* Kocho photo 1 */}
+            <div className="relative h-[430px] w-full overflow-hidden rounded-[28px] md:h-[480px]">
+              <Image
+                src="/images/kocho.jpg"
+                alt="Traditional kocho making in Dorze"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-center"
+              />
+            </div>
+
+            {/* Kocho photo 2 */}
+            <div className="relative h-[430px] w-full overflow-hidden rounded-[28px] md:h-[480px]">
+              <Image
+                src="/images/kocho1.jpg"
+                alt="Visitor experiencing traditional kocho making in Dorze"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-center"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* ========================= */}
+        {/* TRADITIONAL DORZE WEAVING */}
+        {/* ========================= */}
+
+        {/* ========================= */}
+        {/* TRADITIONAL DORZE WEAVING */}
+        {/* ========================= */}
+
         <div className="mt-16 md:grid md:grid-cols-2 md:items-center md:gap-16">
 
-          {/* Text */}
+          {/* Text - left side on desktop */}
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
               Local Craft
@@ -336,8 +373,8 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Photo */}
-          <div className="relative mt-6 h-[430px] w-full overflow-hidden rounded-[28px] md:mt-0 md:h-[560px]">
+          {/* Image - right side on desktop */}
+          <div className="relative mt-6 h-[430px] w-full overflow-hidden rounded-[28px] md:mt-0 md:h-[480px]">
             <Image
               src="/images/weaving.jpg"
               alt="Traditional weaving in Dorze"
@@ -349,6 +386,11 @@ export default function Home() {
 
         </div>
       </section>
+
+      {/* ========================= */}
+      {/* WHY ABUSH */}
+      {/* ========================= */}
+
       <section className="bg-[#f3efe7] px-5 pt-10 pb-10 md:px-0 md:py-16">
         <div className="mx-auto max-w-6xl md:px-10">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
@@ -359,45 +401,55 @@ export default function Home() {
             Explore like a local.
           </h2>
 
-          <div className="mt-8 grid gap-7 md:mt-10 md:grid-cols-3 md:gap-12 md:max-w-5xl">
+          <div className="mt-8 grid gap-7 md:mt-10 md:max-w-5xl md:grid-cols-3 md:gap-12">
+            {/* Local knowledge */}
             <div>
               <FaMapMarkerAlt className="mb-3 text-xl text-neutral-950" />
-              <h3 className="text-lg font-semibold">
-                Local knowledge
-              </h3>
+
+              <h3 className="text-lg font-semibold">Local knowledge</h3>
+
               <p className="mt-2 text-base leading-7 text-neutral-600">
-                Discover places, culture, and experiences with someone who knows the area.
+                Discover places, culture, and experiences with someone who knows
+                the area.
               </p>
             </div>
 
+            {/* Flexible trips */}
             <div>
               <FaRoute className="mb-3 text-xl text-neutral-950" />
-              <h3 className="text-lg font-semibold">
-                Flexible trips
-              </h3>
+
+              <h3 className="text-lg font-semibold">Flexible trips</h3>
+
               <p className="mt-2 text-base leading-7 text-neutral-600">
-                Plan your experience around your interests, schedule, and travel style.
+                Plan your experience around your interests, schedule, and travel
+                style.
               </p>
             </div>
 
+            {/* Direct planning */}
             <div>
               <FaComments className="mb-3 text-xl text-neutral-950" />
-              <h3 className="text-lg font-semibold">
-                Direct planning
-              </h3>
+
+              <h3 className="text-lg font-semibold">Direct planning</h3>
+
               <p className="mt-2 text-base leading-7 text-neutral-600">
-                Message Abush directly on WhatsApp to ask questions and plan your visit.
+                Message Abush directly on WhatsApp to ask questions and plan
+                your visit.
               </p>
             </div>
           </div>
         </div>
       </section>
+
+      {/* ========================= */}
+      {/* MEET ABUSH */}
+      {/* ========================= */}
+
       <section
         id="guide"
         className="bg-neutral-950 px-5 pt-10 pb-16 text-white md:px-12 md:py-16"
       >
         <div className="mx-auto max-w-6xl md:grid md:grid-cols-2 md:items-center md:gap-16">
-
           {/* Guide text */}
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/60">
@@ -413,15 +465,13 @@ export default function Home() {
                 Meet your guide
               </p>
 
-              <h3 className="mt-2 text-3xl font-semibold">
-                Abush
-              </h3>
+              <h3 className="mt-2 text-3xl font-semibold">Abush</h3>
             </div>
 
             <p className="mt-5 text-lg leading-8 text-white/75">
-              Discover Arba Minch and Southern Ethiopia with a local guide who knows
-              the people, culture, landscapes, and experiences that make this region
-              special.
+              Discover Arba Minch and Southern Ethiopia with a local guide who
+              knows the people, culture, landscapes, and experiences that make
+              this region special.
             </p>
           </div>
 
@@ -437,8 +487,15 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* Contact section */}
-      <section id="contact" className="bg-[#f3efe7] px-5 pt-14 pb-10 ...">
+
+      {/* ========================= */}
+      {/* CONTACT */}
+      {/* ========================= */}
+
+      <section
+        id="contact"
+        className="bg-[#f3efe7] px-5 pt-14 pb-10 md:px-12 md:py-16"
+      >
         <div className="mx-auto max-w-6xl">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
             Plan your trip
@@ -449,8 +506,9 @@ export default function Home() {
           </h2>
 
           <p className="mt-5 max-w-3xl text-lg leading-8 text-neutral-600">
-            Tell Abush when you&apos;re visiting and what you&apos;d like to experience.
-            Your trip can be planned around your interests and schedule.
+            Tell Abush when you&apos;re visiting and what you&apos;d like to
+            experience. Your trip can be planned around your interests and
+            schedule.
           </p>
 
           <a
@@ -464,7 +522,11 @@ export default function Home() {
           </a>
         </div>
       </section>
-      {/* Footer */}
+
+      {/* ========================= */}
+      {/* FOOTER */}
+      {/* ========================= */}
+
       <footer className="bg-neutral-950 px-5 pt-8 pb-6 text-white">
         <div className="mx-auto flex max-w-6xl flex-col gap-3">
           <p className="text-lg font-semibold">
