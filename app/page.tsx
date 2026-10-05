@@ -16,11 +16,20 @@ export default function Home() {
     name: "Abush Tour",
     url: "https://abushtour.com",
     description:
-      "Local tour guide in Arba Minch offering private tours and local experiences around Arba Minch and Southern Ethiopia.",
+      "Explore Arba Minch and Southern Ethiopia with Abush, a local tour guide offering private and flexible tours to Nech Sar National Park, Lake Chamo, Forty Springs, Dorze Village, and other local attractions.",
     areaServed: {
       "@type": "Place",
       name: "Arba Minch, Ethiopia",
     },
+    knowsAbout: [
+      "Arba Minch tours",
+      "Arba Minch tour guide",
+      "Nech Sar National Park",
+      "Lake Chamo",
+      "Forty Springs Arba Minch",
+      "Dorze Village",
+      "Southern Ethiopia tourism",
+    ],
   };
 
   const [menuOpen, setMenuOpen] = useState(false);
@@ -190,8 +199,13 @@ export default function Home() {
         </p>
 
         <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-tight text-neutral-950">
-          Experiences worth traveling for.
+          Things to do in Arba Minch with a local guide.
         </h2>
+        <p className="mt-4 max-w-3xl text-base leading-7 text-neutral-600">
+          Discover the best of Arba Minch with Abush, a local tour guide offering
+          private and flexible experiences to Nech Sar National Park, Lake Chamo,
+          Forty Springs, Dorze Village, and more.
+        </p>
 
         {/* ========================= */}
         {/* NECH SAR */}
