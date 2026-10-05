@@ -25,6 +25,9 @@ export default function Home() {
 
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const whatsappUrl =
+    "https://wa.me/251960398456?text=Hi%20Abush!%20I'm%20interested%20in%20visiting%20Arba%20Minch%20and%20would%20like%20to%20know%20more%20about%20your%20tours.";
+
   return (
     <main className="min-h-screen bg-white text-neutral-950">
       <script
@@ -42,8 +45,9 @@ export default function Home() {
         <div className="flex items-center justify-between px-5 py-5 md:px-12">
           <a
             href="/"
-            className={`text-lg font-semibold tracking-tight text-white transition-opacity duration-200 ${menuOpen ? "opacity-0" : "opacity-100"
-              }`}
+            className={`text-lg font-semibold tracking-tight text-white transition-opacity duration-200 ${
+              menuOpen ? "opacity-0" : "opacity-100"
+            }`}
           >
             Abush | Arba Minch Guide
           </a>
@@ -62,14 +66,11 @@ export default function Home() {
       </header>
 
       {/* ========================= */}
-      {/* MOBILE MENU */}
+      {/* MENU */}
       {/* ========================= */}
 
       {menuOpen && (
-        <div
-          className={`fixed inset-y-0 right-0 z-50 w-[75%] max-w-sm bg-neutral-950 text-white transition-transform duration-300 ease-out md:w-[360px] ${menuOpen ? "translate-x-0" : "translate-x-full"
-            }`}
-        >
+        <div className="fixed inset-y-0 right-0 z-50 w-[75%] max-w-sm bg-neutral-950 text-white md:w-[360px]">
           <div className="flex h-full flex-col px-6 py-6 md:py-10">
             <div className="mb-6 flex items-center justify-between">
               <span className="text-lg font-semibold">
@@ -80,7 +81,7 @@ export default function Home() {
                 type="button"
                 onClick={() => setMenuOpen(false)}
                 aria-label="Close menu"
-                className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white"
+                className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10"
               >
                 <span className="text-2xl">×</span>
               </button>
@@ -112,7 +113,7 @@ export default function Home() {
               </a>
 
               <a
-                href="https://wa.me/19452098975?text=Hi%20Abush!%20I'm%20interested%20in%20visiting%20Arba%20Minch%20and%20would%20like%20to%20know%20more%20about%20your%20tours."
+                href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mx-auto mt-6 flex min-h-12 w-[90%] items-center justify-center gap-2.5 rounded-full bg-[#25D366] px-5 text-sm font-semibold text-white shadow-lg md:mx-0 md:w-[220px] md:px-8"
@@ -139,10 +140,8 @@ export default function Home() {
           className="object-cover object-[center_35%]"
         />
 
-        {/* Dark overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-black/80" />
 
-        {/* Main content */}
         <div className="relative z-10 w-full px-5 pb-20 text-white md:px-16 md:pb-24">
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em]">
             Arba Minch, Ethiopia
@@ -167,7 +166,7 @@ export default function Home() {
             </a>
 
             <a
-              href="https://wa.me/19452098975?text=Hi%20Abush!%20I'm%20interested%20in%20visiting%20Arba%20Minch%20and%20would%20like%20to%20know%20more%20about%20your%20tours."
+              href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="mx-auto flex min-h-12 w-[90%] items-center justify-center gap-2.5 rounded-full bg-[#25D366] px-5 text-sm font-semibold text-white shadow-lg md:w-[220px]"
@@ -185,7 +184,7 @@ export default function Home() {
 
       <section
         id="tours"
-        className="mx-auto w-full max-w-6xl bg-white px-5 pt-16 pb-8 md:px-8 md:pb-8"
+        className="mx-auto w-full max-w-6xl bg-white px-5 pb-12 pt-16 md:px-8"
       >
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
           Explore Arba Minch
@@ -194,8 +193,9 @@ export default function Home() {
         <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-tight text-neutral-950">
           Experiences worth traveling for.
         </h2>
+
         {/* ========================= */}
-        {/* NECH SAR NATIONAL PARK */}
+        {/* NECH SAR */}
         {/* ========================= */}
 
         <div className="mt-12">
@@ -212,12 +212,11 @@ export default function Home() {
           </p>
 
           <p className="mt-5 max-w-3xl text-base leading-7 text-neutral-600">
-            Explore the beautiful landscapes and wildlife of Nech Sar National Park,
-            just outside Arba Minch. Discover open grasslands, scenic viewpoints,
-            wildlife, and the natural beauty surrounding the lakes.
+            Explore the beautiful landscapes and wildlife of Nech Sar National
+            Park, just outside Arba Minch. Discover open grasslands, scenic
+            viewpoints, wildlife, and the natural beauty surrounding the lakes.
           </p>
 
-          {/* Nech Sar photo */}
           <div className="mt-6 w-full overflow-hidden rounded-[28px]">
             <Image
               src="/images/zebra.jpg"
@@ -229,12 +228,12 @@ export default function Home() {
             />
           </div>
         </div>
+
         {/* ========================= */}
         {/* LAKE CHAMO */}
         {/* ========================= */}
 
         <div className="mt-16">
-          {/* Details first */}
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
             Lake Chamo
           </p>
@@ -252,21 +251,21 @@ export default function Home() {
             giant Nile crocodiles, hippos, and abundant birdlife.
           </p>
 
-          {/* Wildlife photos */}
           <div className="mt-6 grid gap-6 md:grid-cols-[1.6fr_1fr]">
-            {/* Crocodiles */}
-            <div className="relative h-[420px] w-full overflow-hidden rounded-3xl md:h-[360px]">
+            {/* Crocodiles - landscape */}
+            <div className="w-full overflow-hidden rounded-[28px]">
               <Image
                 src="/images/lake-chamo.jpg"
                 alt="Crocodiles and wildlife at Lake Chamo"
-                fill
+                width={1280}
+                height={853}
                 sizes="(max-width: 768px) 100vw, 60vw"
-                className="object-cover object-top"
+                className="h-auto w-full"
               />
             </div>
 
-            {/* Monkey */}
-            <div className="relative h-[420px] w-full overflow-hidden rounded-3xl md:h-[360px]">
+            {/* Monkey - portrait */}
+            <div className="relative h-[420px] w-full overflow-hidden rounded-[28px] md:h-[360px]">
               <Image
                 src="/images/monkey.jpg"
                 alt="Wildlife around Arba Minch"
@@ -279,11 +278,10 @@ export default function Home() {
         </div>
 
         {/* ========================= */}
-        {/* DORZE CULTURE & VILLAGE */}
+        {/* DORZE */}
         {/* ========================= */}
 
         <div className="mt-16">
-          {/* Details first */}
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
             Dorze Village
           </p>
@@ -301,38 +299,36 @@ export default function Home() {
             everyday village life in the highlands above Arba Minch.
           </p>
 
-          {/* Dorze photos */}
           <div className="mt-6 grid gap-6 md:grid-cols-2">
-            {/* Dorze culture */}
-            <div className="relative h-[300px] w-full overflow-hidden rounded-[28px] md:h-[360px]">
+            <div className="w-full overflow-hidden rounded-[28px]">
               <Image
                 src="/images/dorze.jpg"
                 alt="Dorze cultural experience near Arba Minch"
-                fill
+                width={1280}
+                height={853}
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover object-center"
+                className="h-auto w-full"
               />
             </div>
 
-            {/* Dorze village */}
-            <div className="relative h-[300px] w-full overflow-hidden rounded-[28px] md:h-[360px]">
+            <div className="w-full overflow-hidden rounded-[28px]">
               <Image
                 src="/images/village.jpg"
                 alt="Traditional Dorze village near Arba Minch"
-                fill
+                width={1280}
+                height={853}
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover object-center"
+                className="h-auto w-full"
               />
             </div>
           </div>
         </div>
 
         {/* ========================= */}
-        {/* TRADITIONAL KOCHO MAKING */}
+        {/* KOCHO */}
         {/* ========================= */}
 
         <div className="mt-16">
-          {/* Details first */}
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
             Traditional Kocho Making
           </p>
@@ -351,9 +347,7 @@ export default function Home() {
             preparation yourself, and enjoy tasting it afterward.
           </p>
 
-          {/* Kocho photos */}
           <div className="mt-6 grid gap-6 md:grid-cols-2">
-            {/* Kocho photo 1 */}
             <div className="relative h-[430px] w-full overflow-hidden rounded-[28px] md:h-[480px]">
               <Image
                 src="/images/kocho.jpg"
@@ -364,7 +358,6 @@ export default function Home() {
               />
             </div>
 
-            {/* Kocho photo 2 */}
             <div className="relative h-[430px] w-full overflow-hidden rounded-[28px] md:h-[480px]">
               <Image
                 src="/images/kocho1.jpg"
@@ -378,16 +371,11 @@ export default function Home() {
         </div>
 
         {/* ========================= */}
-        {/* TRADITIONAL DORZE WEAVING */}
-        {/* ========================= */}
-
-        {/* ========================= */}
-        {/* TRADITIONAL DORZE WEAVING */}
+        {/* WEAVING */}
         {/* ========================= */}
 
         <div className="mt-16 md:grid md:grid-cols-2 md:items-center md:gap-16">
-
-          {/* Text - left side on desktop */}
+          {/* Text */}
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
               Local Craft
@@ -402,12 +390,12 @@ export default function Home() {
             </p>
 
             <p className="mt-5 text-lg leading-8 text-neutral-600">
-              Meet local weavers and discover the traditional skills behind Dorze
-              textiles, passed down through generations.
+              Meet local weavers and discover the traditional skills behind
+              Dorze textiles, passed down through generations.
             </p>
           </div>
 
-          {/* Image - right side on desktop */}
+          {/* Weaving photo */}
           <div className="relative mt-6 h-[430px] w-full overflow-hidden rounded-[28px] md:mt-0 md:h-[480px]">
             <Image
               src="/images/weaving.jpg"
@@ -417,7 +405,6 @@ export default function Home() {
               className="object-cover object-center"
             />
           </div>
-
         </div>
       </section>
 
@@ -425,7 +412,7 @@ export default function Home() {
       {/* WHY ABUSH */}
       {/* ========================= */}
 
-      <section className="bg-[#f3efe7] px-5 pt-10 pb-10 md:px-0 md:py-16">
+      <section className="bg-[#f3efe7] px-5 pb-10 pt-10 md:px-0 md:py-16">
         <div className="mx-auto max-w-6xl md:px-10">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
             Why Abush
@@ -436,7 +423,6 @@ export default function Home() {
           </h2>
 
           <div className="mt-8 grid gap-7 md:mt-10 md:max-w-5xl md:grid-cols-3 md:gap-12">
-            {/* Local knowledge */}
             <div>
               <FaMapMarkerAlt className="mb-3 text-xl text-neutral-950" />
 
@@ -448,7 +434,6 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Flexible trips */}
             <div>
               <FaRoute className="mb-3 text-xl text-neutral-950" />
 
@@ -460,7 +445,6 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Direct planning */}
             <div>
               <FaComments className="mb-3 text-xl text-neutral-950" />
 
@@ -481,10 +465,9 @@ export default function Home() {
 
       <section
         id="guide"
-        className="bg-neutral-950 px-5 pt-10 pb-16 text-white md:px-12 md:py-16"
+        className="bg-neutral-950 px-5 pb-16 pt-10 text-white md:px-12 md:py-16"
       >
         <div className="mx-auto max-w-6xl md:grid md:grid-cols-2 md:items-center md:gap-16">
-          {/* Guide text */}
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/60">
               Your Local Guide
@@ -509,7 +492,6 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Guide photo */}
           <div className="relative mt-10 h-[560px] w-full overflow-hidden rounded-[28px] md:mt-0 md:max-h-[600px]">
             <Image
               src="/images/guide.jpg"
@@ -528,7 +510,7 @@ export default function Home() {
 
       <section
         id="contact"
-        className="bg-[#f3efe7] px-5 pt-14 pb-10 md:px-12 md:py-16"
+        className="bg-[#f3efe7] px-5 pb-10 pt-14 md:px-12 md:py-16"
       >
         <div className="mx-auto max-w-6xl">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
@@ -546,7 +528,7 @@ export default function Home() {
           </p>
 
           <a
-            href="https://wa.me/19452098975?text=Hi%20Abush!%20I'm%20interested%20in%20visiting%20Arba%20Minch%20and%20would%20like%20to%20know%20more%20about%20your%20tours."
+            href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="mx-auto mt-8 flex min-h-12 w-[90%] items-center justify-center gap-2.5 rounded-full bg-[#25D366] px-5 text-sm font-semibold text-white md:mx-0 md:w-[290px]"
@@ -561,7 +543,7 @@ export default function Home() {
       {/* FOOTER */}
       {/* ========================= */}
 
-      <footer className="bg-neutral-950 px-5 pt-8 pb-6 text-white">
+      <footer className="bg-neutral-950 px-5 pb-6 pt-8 text-white">
         <div className="mx-auto flex max-w-6xl flex-col gap-3">
           <p className="text-lg font-semibold">
             Abush | Arba Minch Guide
