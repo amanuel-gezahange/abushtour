@@ -1,13 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import {
   FaWhatsapp,
   FaMapMarkerAlt,
   FaRoute,
   FaComments,
+  FaInstagram,
+  FaTiktok,
 } from "react-icons/fa";
-import Image from "next/image";
 
 export default function Home() {
   const structuredData = {
@@ -617,6 +619,29 @@ export default function Home() {
           <p className="text-sm text-white/60">
             Local tours and experiences in Arba Minch & Southern Ethiopia.
           </p>
+
+          {/* SOCIAL MEDIA */}
+          <div className="mt-3 flex items-center gap-4">
+            <a
+              href="https://www.instagram.com/abushdorze?stkn=MXUwdzE5amQxbzQ5Mg=="
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Abush on Instagram"
+              className="text-2xl text-white/70 transition hover:text-white"
+            >
+              <FaInstagram />
+            </a>
+
+            <a
+              href="https://vt.tiktok.com/ZSbQE8JGc"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Abush on TikTok"
+              className="text-2xl text-white/70 transition hover:text-white"
+            >
+              <FaTiktok />
+            </a>
+          </div>
 
           <p className="mt-5 text-xs text-white/40">
             © 2026 Abush | Arba Minch Guide
