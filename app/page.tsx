@@ -218,17 +218,37 @@ export default function Home() {
           </p>
         </div>
         {/* Dorze experience */}
+        {/* Dorze Culture & Village */}
         <div className="mt-14">
-          <div className="relative h-[300px] w-full overflow-hidden rounded-[28px] md:h-[340px]">
-            <Image
-              src="/images/dorze.jpg"
-              alt="Dorze cultural experience near Arba Minch"
-              fill
-              sizes="(max-width: 768px) 100vw, 1152px"
-              className="object-cover object-center"
-            />
+
+          {/* Dorze photos */}
+          <div className="grid gap-6 md:grid-cols-2">
+
+            {/* Dorze culture photo */}
+            <div className="relative h-[300px] w-full overflow-hidden rounded-[28px] md:h-[360px]">
+              <Image
+                src="/images/dorze.jpg"
+                alt="Dorze cultural experience near Arba Minch"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-center"
+              />
+            </div>
+
+            {/* Dorze village photo */}
+            <div className="relative h-[300px] w-full overflow-hidden rounded-[28px] md:h-[360px]">
+              <Image
+                src="/images/village.jpg"
+                alt="Traditional Dorze village near Arba Minch"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-center"
+              />
+            </div>
+
           </div>
 
+          {/* Dorze description */}
           <p className="mt-6 text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
             Dorze Village
           </p>
@@ -245,26 +265,54 @@ export default function Home() {
             Discover Dorze traditions, famous woven textiles, unique homes, and
             everyday village life in the highlands above Arba Minch.
           </p>
-          <div className="mt-8">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
+
+
+          {/* Traditional Kocho Making */}
+          <div className="mt-12">
+
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
               Traditional Kocho Making
             </p>
 
-            <div className="relative mt-6 h-[430px] w-full overflow-hidden rounded-[28px] md:mt-0 md:h-[560px]">
-              <Image
-                src="/images/kocho.jpg"
-                alt="Traditional kocho making in Dorze"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover object-center"
-              />
+            {/* Kocho photos */}
+            <div className="mt-6 grid gap-6 md:grid-cols-2">
+
+              {/* Kocho photo 1 */}
+              <div className="relative h-[430px] w-full overflow-hidden rounded-[28px] md:h-[480px]">
+                <Image
+                  src="/images/kocho.jpg"
+                  alt="Traditional kocho making in Dorze"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover object-center"
+                />
+              </div>
+
+              {/* Kocho photo 2 */}
+              <div className="relative h-[430px] w-full overflow-hidden rounded-[28px] md:h-[480px]">
+                <Image
+                  src="/images/kocho1.jpg"
+                  alt="Visitor experiencing traditional kocho making in Dorze"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover object-center"
+                />
+              </div>
+
             </div>
 
-            <p className="mt-4 text-base leading-7 text-neutral-600">
-              Experience traditional kocho making with local Dorze families. Learn how kocho is prepared from the enset plant, take part in the preparation yourself, and enjoy tasting it afterward.
+            {/* Kocho description */}
+            <p className="mt-5 text-base leading-7 text-neutral-600">
+              Experience traditional kocho making with local Dorze families.
+              Learn how kocho is prepared from the enset plant, take part in the
+              preparation yourself, and enjoy tasting it afterward.
             </p>
+
           </div>
         </div>
+
+
+        {/* Traditional weaving experience */}
         {/* Traditional weaving experience */}
         <div className="mt-16 md:grid md:grid-cols-2 md:items-center md:gap-16">
 
