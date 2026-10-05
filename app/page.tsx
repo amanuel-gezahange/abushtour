@@ -194,12 +194,46 @@ export default function Home() {
         <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-tight text-neutral-950">
           Experiences worth traveling for.
         </h2>
+        {/* ========================= */}
+        {/* NECH SAR NATIONAL PARK */}
+        {/* ========================= */}
 
+        <div className="mt-12">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
+            Nech Sar National Park
+          </p>
+
+          <h3 className="mt-3 text-2xl font-semibold tracking-tight text-neutral-950">
+            Explore Nech Sar National Park
+          </h3>
+
+          <p className="mt-3 text-base font-medium text-neutral-500">
+            Wildlife · Landscapes · Hiking · Nature
+          </p>
+
+          <p className="mt-5 max-w-3xl text-base leading-7 text-neutral-600">
+            Explore the beautiful landscapes and wildlife of Nech Sar National Park,
+            just outside Arba Minch. Discover open grasslands, scenic viewpoints,
+            wildlife, and the natural beauty surrounding the lakes.
+          </p>
+
+          {/* Nech Sar photo */}
+          <div className="mt-6 w-full overflow-hidden rounded-[28px]">
+            <Image
+              src="/images/zebra.jpg"
+              alt="Zebra in Nech Sar National Park near Arba Minch"
+              width={1280}
+              height={853}
+              sizes="(max-width: 768px) 100vw, 1152px"
+              className="h-auto w-full"
+            />
+          </div>
+        </div>
         {/* ========================= */}
         {/* LAKE CHAMO */}
         {/* ========================= */}
 
-        <div className="mt-12">
+        <div className="mt-16">
           {/* Details first */}
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
             Lake Chamo
