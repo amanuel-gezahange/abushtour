@@ -45,9 +45,8 @@ export default function Home() {
         <div className="flex items-center justify-between px-5 py-5 md:px-12">
           <a
             href="/"
-            className={`text-lg font-semibold tracking-tight text-white transition-opacity duration-200 ${
-              menuOpen ? "opacity-0" : "opacity-100"
-            }`}
+            className={`text-lg font-semibold tracking-tight text-white transition-opacity duration-200 ${menuOpen ? "opacity-0" : "opacity-100"
+              }`}
           >
             Abush | Arba Minch Guide
           </a>
@@ -276,12 +275,63 @@ export default function Home() {
             </div>
           </div>
         </div>
+        {/* ========================= */}
+        {/* FORTY SPRINGS */}
+
+        <div className="mt-16">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
+            Forty Springs
+          </p>
+
+          <h3 className="mt-3 text-2xl font-semibold tracking-tight text-neutral-950">
+            Walk Through the Forty Springs
+          </h3>
+
+          <p className="mt-3 text-base font-medium text-neutral-500">
+            Springs · Forest · Walking · Nature
+          </p>
+
+          <p className="mt-5 max-w-3xl text-base leading-7 text-neutral-600">
+            Take a peaceful walk through the forest at Arba Minch&apos;s Forty Springs,
+            where natural spring water, shady trails, and lush surroundings offer a
+            refreshing escape into nature.
+          </p>
+
+          {/* PHOTOS */}
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            {/* First photo */}
+            <div className="relative h-[430px] w-full overflow-hidden rounded-[28px] md:h-[500px]">
+              <Image
+                src="/images/forty-springs.jpg"
+                alt="Forty Springs in Arba Minch, Ethiopia"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-center"
+              />
+            </div>
+
+            {/* Second photo */}
+            <div className="relative h-[430px] w-full overflow-hidden rounded-[28px] md:h-[500px]">
+              <Image
+                src="/images/forty-springs1.jpg"
+                alt="Visitor experiencing Forty Springs in Arba Minch"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-center"
+              />
+            </div>
+          </div>
+        </div>
 
         {/* ========================= */}
         {/* DORZE */}
         {/* ========================= */}
 
-        <div className="mt-16">
+        {/* ========================= */}
+        {/* DORZE */}
+        {/* ========================= */}
+
+        <div className="mt-10">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
             Dorze Village
           </p>
@@ -299,26 +349,27 @@ export default function Home() {
             everyday village life in the highlands above Arba Minch.
           </p>
 
+          {/* PHOTOS */}
           <div className="mt-6 grid gap-6 md:grid-cols-2">
-            <div className="w-full overflow-hidden rounded-[28px]">
+            {/* First photo */}
+            <div className="relative h-[430px] w-full overflow-hidden rounded-[28px] md:h-[500px]">
               <Image
                 src="/images/dorze.jpg"
                 alt="Dorze cultural experience near Arba Minch"
-                width={1280}
-                height={853}
+                fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="h-auto w-full"
+                className="object-cover object-center"
               />
             </div>
 
-            <div className="w-full overflow-hidden rounded-[28px]">
+            {/* Second photo */}
+            <div className="relative h-[430px] w-full overflow-hidden rounded-[28px] md:h-[500px]">
               <Image
                 src="/images/village.jpg"
                 alt="Traditional Dorze village near Arba Minch"
-                width={1280}
-                height={853}
+                fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="h-auto w-full"
+                className="object-cover object-center"
               />
             </div>
           </div>
@@ -465,7 +516,7 @@ export default function Home() {
 
       <section
         id="guide"
-        className="bg-neutral-950 px-5 pb-16 pt-10 text-white md:px-12 md:py-16"
+        className="scroll-mt-[-40px] bg-neutral-950 px-5 pb-16 pt-10 text-white md:px-12 md:py-16"
       >
         <div className="mx-auto max-w-6xl md:grid md:grid-cols-2 md:items-center md:gap-16">
           <div>
